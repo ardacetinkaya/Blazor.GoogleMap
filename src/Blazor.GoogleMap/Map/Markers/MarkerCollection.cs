@@ -57,8 +57,19 @@ namespace Blazor.GoogleMap.Map.Markers
         public bool Contains(Marker marker)
             => markers.ContainsKey(marker.Id);
 
-        public void Clear()
-            => markers.Clear();
+        public async Task Clear()
+        {
+
+            var jsRemoveResult = await jSRuntime.InvokeAsync<bool>("blazorGoogleMap.markersModule.clear");
+
+            if (jsRemoveResult)
+            {
+                markers.Clear();
+            }
+
+
+        }
+
 
         public IEnumerator<Marker> GetEnumerator()
             => markers.Values.GetEnumerator();

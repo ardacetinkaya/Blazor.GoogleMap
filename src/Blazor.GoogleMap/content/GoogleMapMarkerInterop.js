@@ -67,6 +67,16 @@ window.blazorGoogleMap.markersModule = {
         return removeResult;
     },
 
+    clear: function () {
+        if (blazorGoogleMap.markersModule.markers.length <= 0)
+            return false;
+
+        for (var i = 0; i < blazorGoogleMap.markersModule.markers.length; i++) {
+            blazorGoogleMap.markersModule.markers[i].mapMarker.setMap(null);
+        }
+        return true;
+    },
+
     setAnimation: function (markerId, animation) {
         var marker = blazorGoogleMap.markersModule.findMarker(markerId);
         if (marker !== undefined) {

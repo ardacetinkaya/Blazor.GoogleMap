@@ -16,6 +16,6 @@ namespace Blazor.GoogleMap.Map.Markers
 
         bool Contains(Marker marker);
 
-        void Clear();
+        Task Clear();
     }
 }
