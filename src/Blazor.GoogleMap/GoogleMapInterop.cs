@@ -3,6 +3,7 @@ using Blazor.GoogleMap.Map.Coordinates;
 using Blazor.GoogleMap.Map.Events;
 using Microsoft.JSInterop;
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace Blazor.GoogleMap
@@ -20,8 +21,15 @@ namespace Blazor.GoogleMap
 
         public async Task InitMap(InitialMapOptions initialMapOptions)
         {
-            
            await jSRuntime.InvokeVoidAsync("blazorGoogleMap.initMap", initialMapOptions);
+        }
+
+        public async Task MoveToPosition(double latitude, double longitude)
+        {
+            Debug.Assert(latitude != 0);
+            Debug.Assert(longitude != 0);
+
+            await jSRuntime.InvokeVoidAsync("blazorGoogleMap.moveToPosition", latitude,longitude);
         }
 
         public async Task ExecuteInitMapCallback()

@@ -34,6 +34,11 @@ namespace Blazor.GoogleMap.Components
         {
         }
 
+        public async Task MoveToPosition(double latitude,double longitude)
+        {
+            await GoogleMapInterop.MoveToPosition(latitude,longitude);
+        }
+
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
             base.BuildRenderTree(builder);

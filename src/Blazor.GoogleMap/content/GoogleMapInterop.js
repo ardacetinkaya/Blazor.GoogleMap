@@ -34,7 +34,12 @@ window.blazorGoogleMap = {
     initMap: function (initialMapOptions) {
         blazorGoogleMap.initialMapOptions = initialMapOptions;
     },
-
+    moveToPosition: function (lat, lng) {
+        if (blazorGoogleMap) {
+            var center = new google.maps.LatLng(lat, lng);
+            blazorGoogleMap.map.panTo(center);
+        }
+    },
     openInfoWindow: function (id, positionableObject, htmlContent) {
         var content = {};
         if (htmlContent !== undefined) {
