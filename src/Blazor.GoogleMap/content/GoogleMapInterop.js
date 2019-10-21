@@ -35,6 +35,7 @@ window.blazorGoogleMap = {
         blazorGoogleMap.initialMapOptions = initialMapOptions;
     },
     moveToPosition: function (lat, lng) {
+
         if (blazorGoogleMap) {
             var center = new google.maps.LatLng(lat, lng);
             blazorGoogleMap.map.panTo(center);

@@ -52,6 +52,9 @@ Also don't forget to add following GoogleMapInterop.js and GoogleMapMarkerIntero
     StreetViewControl = false,
     ZoomControl = false
 ```
+
+* MoveToPosition to change map's center
+
 # Markers
 For adding markers to the map you need **IMarkerCollection** service which is provided by method **Create** on **MarkerCollectionFactory** object.
 
